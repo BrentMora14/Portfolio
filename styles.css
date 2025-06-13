@@ -56,7 +56,7 @@ h2 {
 
 .skills-track {
   display: flex;
-  width: calc(200px * 10); /* Adjust width to match number of items */
+  width: calc(200px * 10); /* 10 items, adjust as needed */
   animation: scrollSkills 20s linear infinite;
 }
 
@@ -71,10 +71,16 @@ h2 {
   height: 50px;
 }
 
+/* Smooth scroll animation */
 @keyframes scrollSkills {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-1000px); /* Adjust based on .skill width * number of unique items */
+  }
 }
+
 
 /* Section 3: Projects */
 #projects {
