@@ -17,7 +17,7 @@ section {
 
 h2 {
   margin-bottom: 20px;
-  color: #c026d3;
+  color: #4b0082; /* Dark purple */
   text-align: center;
 }
 
@@ -44,35 +44,25 @@ h2 {
   max-width: 400px;
 }
 
-/* Skills Carousel */
+/* Skills Section */
 #skills {
-  background: linear-gradient(90deg, #ffe6f0, #f3e8ff);
-  border-bottom: none;
+  background-color: #ffe6f0; /* Light pink */
   border-top: 1px solid #ddd;
   padding: 60px 20px;
 }
 
-.skills-carousel {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-}
-
-.skills-track {
+.skills-list {
   display: flex;
-  width: calc(200px * 10); /* 10 items total (5 original + 5 duplicates) */
-  animation: scrollSkills 20s linear infinite;
-}
-
-.skills-carousel:hover .skills-track {
-  animation-play-state: paused;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 
 .skill {
-  flex: 0 0 200px;
   background: linear-gradient(135deg, #ff9ecb, #d8b4fe);
   border-radius: 999px;
   padding: 20px;
+  min-width: 140px;
   text-align: center;
   color: white;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -94,17 +84,9 @@ h2 {
   font-weight: bold;
 }
 
-@keyframes scrollSkills {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-1000px); /* 5 items * 200px = 1000px */
-  }
-}
-
-/* Projects */
+/* Projects Section */
 #projects {
+  background: linear-gradient(135deg, #ffb6d9, #d8b4fe); /* Pink to purple */
   text-align: center;
 }
 
@@ -126,7 +108,7 @@ h2 {
   transform: scale(1.1);
 }
 
-/* Contact */
+/* Contact Section */
 #contact {
   text-align: center;
 }
@@ -156,4 +138,14 @@ form textarea {
 
 form button {
   padding: 10px;
-  background: linear-gradient(135d
+  background: linear-gradient(135deg, #ff66b3, #a855f7);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+form button:hover {
+  background: linear-gradient(135deg, #e60073, #7e22ce);
+}
