@@ -90,7 +90,9 @@ h2 {
 #projects {
   background: linear-gradient(135deg, #ffb6d9, #d8b4fe); /* Pink to purple */
   text-align: center;
+  border-top: 2px solid white;
 }
+
 
 .project-icons {
   display: flex;
