@@ -1,0 +1,142 @@
+/* Import Roboto font */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+section {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: auto;
+  border-bottom: 1px solid #ddd;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Section 1: Introduction (Photo + Bullet Points Side by Side) */
+#introduction .intro-container {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: left;
+}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+#introduction ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  max-width: 400px;
+}
+
+/* Section 2: Skills Carousel */
+#skills {
+  overflow: hidden;
+}
+
+.skills-carousel {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.skills-track {
+  display: flex;
+  width: calc(200px * 10); /* Adjust width to match number of items */
+  animation: scrollSkills 20s linear infinite;
+}
+
+.skill {
+  flex: 0 0 200px;
+  text-align: center;
+  margin: 0 10px;
+}
+
+.skill img {
+  width: 50px;
+  height: 50px;
+}
+
+@keyframes scrollSkills {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Section 3: Projects */
+#projects {
+  text-align: center;
+}
+
+.project-icons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.project-icons img {
+  width: 80px;
+  height: 80px;
+  margin: 10px;
+  transition: transform 0.3s;
+}
+
+.project-icons img:hover {
+  transform: scale(1.1);
+}
+
+/* Section 4: Contact */
+#contact {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: auto;
+  text-align: left;
+}
+
+form label {
+  margin-top: 10px;
+}
+
+form input,
+form textarea {
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+form button {
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+form button:hover {
+  background-color: #555;
+}
