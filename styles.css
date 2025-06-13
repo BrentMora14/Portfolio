@@ -1,4 +1,4 @@
-/* Import Roboto font */
+/* Base Styles */
 body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
@@ -17,10 +17,11 @@ section {
 
 h2 {
   margin-bottom: 20px;
-  color: #333;
+  color: #c026d3;
+  text-align: center;
 }
 
-/* Section 1: Introduction (Photo + Bullet Points Side by Side) */
+/* Introduction */
 #introduction .intro-container {
   display: flex;
   align-items: center;
@@ -43,9 +44,12 @@ h2 {
   max-width: 400px;
 }
 
-/* Section 2: Skills Carousel */
+/* Skills Carousel */
 #skills {
-  overflow: hidden;
+  background: linear-gradient(90deg, #ffe6f0, #f3e8ff);
+  border-bottom: none;
+  border-top: 1px solid #ddd;
+  padding: 60px 20px;
 }
 
 .skills-carousel {
@@ -56,33 +60,51 @@ h2 {
 
 .skills-track {
   display: flex;
-  width: calc(200px * 10); /* 10 items, adjust as needed */
+  justify-content: center;
+  gap: 20px;
   animation: scrollSkills 20s linear infinite;
 }
 
+.skills-carousel:hover .skills-track {
+  animation-play-state: paused;
+}
+
 .skill {
-  flex: 0 0 200px;
+  background: linear-gradient(135deg, #ff9ecb, #d8b4fe);
+  border-radius: 999px;
+  padding: 20px;
+  min-width: 140px;
   text-align: center;
-  margin: 0 10px;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.skill:hover {
+  transform: scale(1.05);
 }
 
 .skill img {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 10px;
 }
 
-/* Smooth scroll animation */
+.skill p {
+  margin: 0;
+  font-weight: bold;
+}
+
 @keyframes scrollSkills {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-1000px); /* Adjust based on .skill width * number of unique items */
+    transform: translateX(-600px); /* Adjust based on total width */
   }
 }
 
-
-/* Section 3: Projects */
+/* Projects */
 #projects {
   text-align: center;
 }
@@ -105,7 +127,7 @@ h2 {
   transform: scale(1.1);
 }
 
-/* Section 4: Contact */
+/* Contact */
 #contact {
   text-align: center;
 }
@@ -135,7 +157,7 @@ form textarea {
 
 form button {
   padding: 10px;
-  background-color: #333;
+  background: linear-gradient(135deg, #ff66b3, #a855f7);
   color: white;
   border: none;
   border-radius: 4px;
@@ -144,5 +166,5 @@ form button {
 }
 
 form button:hover {
-  background-color: #555;
+  background: linear-gradient(135deg, #e60073, #7e22ce);
 }
