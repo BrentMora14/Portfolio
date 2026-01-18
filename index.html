@@ -1,71 +1,491 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <!-- Google Font: Roboto -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #0a0514 0%, #1a0f2e 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
 
-  <!-- External CSS -->
-  <link rel="stylesheet" href="styles.css">
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: drift 60s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes drift {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(50px, 50px);
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Intro Section */
+        .intro-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .intro-content h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease-out;
+            position: relative;
+        }
+
+        .intro-content h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #8b5cf6, transparent);
+        }
+
+        .intro-content p {
+            font-size: 1.5rem;
+            color: #a0a0a0;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .intro-bio {
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .intro-bio ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .intro-bio li {
+            color: #a0a0a0;
+            font-size: 1.1rem;
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .intro-bio li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #8b5cf6;
+        }
+
+        .intro-bio .highlight {
+            text-decoration: underline;
+            text-decoration-color: #8b5cf6;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 3px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+        }
+
+        /* Projects Section */
+        .projects-section {
+            min-height: 100vh;
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 60px;
+            background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .section-title::before {
+            content: '//';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-200px);
+            color: rgba(139, 92, 246, 0.3);
+            font-weight: 300;
+        }
+
+        .section-title::after {
+            content: '//';
+            position: absolute;
+            right: 50%;
+            transform: translateX(200px);
+            color: rgba(139, 92, 246, 0.3);
+            font-weight: 300;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .project-card:hover::before {
+            left: 100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
+            border-color: rgba(139, 92, 246, 0.4);
+        }
+
+        .project-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #8b5cf6;
+        }
+
+        .project-card p {
+            color: #b0b0b0;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .features-list {
+            margin-bottom: 15px;
+        }
+
+        .features-list h4 {
+            color: #a78bfa;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            margin-top: 15px;
+        }
+
+        .features-list ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .features-list li {
+            color: #b0b0b0;
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 5px;
+        }
+
+        .features-list li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #8b5cf6;
+        }
+
+        .overview-section {
+            margin-bottom: 20px;
+        }
+
+        .overview-section h4 {
+            color: #a78bfa;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .overview-section p {
+            color: #b0b0b0;
+            line-height: 1.8;
+        }
+
+        .screenshots-grid {
+            margin-top: 10px;
+        }
+
+        .screenshot-placeholder {
+            width: 100%;
+            height: 250px;
+            background: rgba(139, 92, 246, 0.1);
+            border: 2px dashed rgba(139, 92, 246, 0.3);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8b5cf6;
+            font-size: 0.9rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            background: rgba(139, 92, 246, 0.2);
+            color: #c4b5fd;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .contact-content h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .email-link {
+            font-size: 1.8rem;
+            color: #8b5cf6;
+            text-decoration: none;
+            display: inline-block;
+            padding: 20px 40px;
+            background: rgba(139, 92, 246, 0.1);
+            border-radius: 15px;
+            border: 2px solid rgba(139, 92, 246, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .email-link:hover {
+            background: rgba(139, 92, 246, 0.2);
+            border-color: #8b5cf6;
+            transform: scale(1.05);
+        }
+
+        .social-links {
+            margin-top: 20px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .social-link {
+            color: #a78bfa;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-link:hover {
+            color: #8b5cf6;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .intro-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .intro-content p {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Intro Section -->
+    <section class="intro-section">
+        <div class="container">
+            <div class="intro-content">
+                <h1>Hello, I'm Brent Johann Morales</h1>
+                <div class="intro-bio">
+                    <ul>
+                        <li><span class="highlight">BS Computer Science</span> undergraduate at the University of the Philippines Diliman</li>
+                        <li>Focused on data-driven problem solving using <span class="highlight">Machine Learning</span> and <span class="highlight">Artificial Intelligence</span></li>
+                        <li>Experienced in managing teams, developing projects, automating data workflows, and optimizing processes to efficiently deliver results</li>
+                    </ul>
+                </div>
+                <a href="#projects" class="cta-button">View My Work</a>
+            </div>
+        </div>
+    </section>
 
-  <!-- Section 1: Introduction -->
-  <section id="introduction">
-    <div class="intro-container">
-      <img src="your-photo.jpg" alt="My Photo" class="profile-pic">
-      <ul>
-        <li>Passionate developer with a love for clean code</li>
-        <li>Based in [Your City]</li>
-        <li>Strong problem-solving skills</li>
-        <li>Always learning new technologies</li>
-        <li>Enjoys collaborating with others</li>
-      </ul>
-    </div>
-  </section>
+    <!-- Projects Section -->
+    <section class="projects-section" id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <a href="https://huggingface.co/spaces/screamingKatze/object-detection-japanese" target="_blank" rel="noopener noreferrer" class="project-card">
+                    <h3>Japanese Object Detection & Translation</h3>
+                    
+                    <div class="overview-section">
+                        <h4>Overview</h4>
+                        <p>A computer vision web application that detects objects from images and translates its labels to Japanese with Furigana pronunciation guides.</p>
+                    </div>
 
-  <!-- Section 2: Skills -->
-  <section id="skills">
-    <h2>My Skills</h2>
-    <div class="skills-list">
-      <div class="skill"><img src="html-logo.png" alt="HTML"><p>HTML</p></div>
-      <div class="skill"><img src="css-logo.png" alt="CSS"><p>CSS</p></div>
-      <div class="skill"><img src="js-logo.png" alt="JavaScript"><p>JavaScript</p></div>
-      <div class="skill"><img src="react-logo.png" alt="React"><p>React</p></div>
-      <div class="skill"><img src="node-logo.png" alt="Node.js"><p>Node.js</p></div>
-    </div>
-  </section>
+                    <div class="overview-section">
+                        <h4>Goal</h4>
+                        <p>To help language learners efficiently build better vocabulary while interacting with the real-world.</p>
+                    </div>
 
-  <!-- Section 3: Projects -->
-  <section id="projects">
-    <h2>My Projects</h2>
-    <div class="project-icons">
-      <a href="project1.html"><img src="project-icon1.png" alt="Project 1"></a>
-      <a href="project2.html"><img src="project-icon2.png" alt="Project 2"></a>
-      <a href="project3.html"><img src="project-icon3.png" alt="Project 3"></a>
-      <a href="project4.html"><img src="project-icon4.png" alt="Project 4"></a>
-    </div>
-  </section>
+                    <div class="features-list">
+                        <h4>Screenshots</h4>
+                        <div class="screenshots-grid">
+                            <div class="screenshot-placeholder">Screenshot Preview</div>
+                        </div>
+                    </div>
 
-  <!-- Section 4: Contact -->
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <form action="mailto:brentjohannmorales@gmail.com" method="post" enctype="text/plain">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
+                    <div class="features-list">
+                        <h4>Features</h4>
+                        <ul>
+                            <li>Real-time object detection using DETR model</li>
+                            <li>Automatic translation to Japanese</li>
+                            <li>Furigana (hiragana) pronunciation guides</li>
+                            <li>Mobile-friendly Progressive Web App</li>
+                            <li>Camera integration for on-the-go learning</li>
+                        </ul>
+                    </div>
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
+                    <div class="features-list">
+                        <h4>Future Improvements</h4>
+                        <ul>
+                            <li>Offline mode with cached translations</li>
+                            <li>Multiple language support</li>
+                            <li>Speech synthesis for pronunciation</li>
+                        </ul>
+                    </div>
 
-      <label for="message">Message:</label>
-      <textarea id="message" name="message" required></textarea>
+                    <div class="project-tags">
+                        <span class="tag">PyTorch</span>
+                        <span class="tag">Hugging Face Transformers</span>
+                        <span class="tag">DETR</span>
+                        <span class="tag">Google Translate API</span>
+                        <span class="tag">Kakasi</span>
+                        <span class="tag">Hugging Face Spaces</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
 
-      <button type="submit">Send</button>
-    </form>
-  </section>
-
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-content">
+                <h2>Let's Connect</h2>
+                <a href="mailto:brentjohannmorales@gmail.com" class="email-link">brentjohannmorales@gmail.com</a>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/brent-morales-286992320/" target="_blank" rel="noopener noreferrer" class="social-link">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
