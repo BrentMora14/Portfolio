@@ -190,32 +190,10 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-            text-decoration: none;
             color: inherit;
             display: block;
             position: relative;
             overflow: hidden;
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.1), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .project-card:hover::before {
-            left: 100%;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
-            border-color: rgba(139, 92, 246, 0.4);
         }
 
         .project-card h3 {
@@ -292,6 +270,19 @@
             font-size: 0.9rem;
         }
 
+        .screenshot-img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            border: 2px solid rgba(139, 92, 246, 0.3);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .screenshot-img:hover {
+            transform: scale(1.02);
+            border-color: rgba(139, 92, 246, 0.6);
+        }
+
         .project-tags {
             display: flex;
             flex-wrap: wrap;
@@ -304,6 +295,23 @@
             padding: 5px 15px;
             border-radius: 20px;
             font-size: 0.9rem;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(139, 92, 246, 0.4);
         }
 
         /* Contact Section */
@@ -422,7 +430,7 @@
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
             <div class="projects-grid">
-                <a href="https://huggingface.co/spaces/screamingKatze/object-detection-japanese" target="_blank" rel="noopener noreferrer" class="project-card">
+                <div class="project-card">
                     <h3>Japanese Object Detection & Translation</h3>
                     
                     <div class="overview-section">
@@ -438,7 +446,7 @@
                     <div class="features-list">
                         <h4>Screenshots</h4>
                         <div class="screenshots-grid">
-                            <div class="screenshot-placeholder">Screenshot Preview</div>
+                            <img src="assets/images/screenshot.png" alt="Japanese Object Detection Screenshot" class="screenshot-img">
                         </div>
                     </div>
 
@@ -470,7 +478,9 @@
                         <span class="tag">Kakasi</span>
                         <span class="tag">Hugging Face Spaces</span>
                     </div>
-                </a>
+
+                    <a href="https://huggingface.co/spaces/screamingKatze/object-detection-japanese" target="_blank" rel="noopener noreferrer" class="project-link">Link to Project</a>
+                </div>
             </div>
         </div>
     </section>
