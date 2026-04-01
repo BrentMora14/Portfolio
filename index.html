@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Brent Johann Morales | Portfolio</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap');
+
         * {
             margin: 0;
             padding: 0;
@@ -12,34 +14,11 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #0a0514 0%, #1a0f2e 100%);
-            color: #e0e0e0;
-            line-height: 1.6;
+            font-family: 'Arial', sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.8;
             overflow-x: hidden;
-            position: relative;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(139, 92, 246, 0.05) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: drift 60s linear infinite;
-            pointer-events: none;
-        }
-
-        @keyframes drift {
-            0% {
-                transform: translate(0, 0);
-            }
-            100% {
-                transform: translate(50px, 50px);
-            }
         }
 
         .container {
@@ -48,50 +27,153 @@
             padding: 0 20px;
         }
 
-        /* Intro Section */
-        .intro-section {
-            min-height: 100vh;
+        /* Header Section - Journalism Style */
+        .header-section {
+            background: #ffffff;
+            padding: 60px 0 40px;
+            border-bottom: 8px solid #8b5cf6;
+            position: relative;
+        }
+
+        .header-section::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #1a1a1a;
+        }
+
+        .masthead {
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .site-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 5rem;
+            font-weight: 900;
+            letter-spacing: -2px;
+            line-height: 1;
+        }
+
+        .site-title .first-name {
+            color: #1a1a1a;
+            display: block;
+        }
+
+        .site-title .last-name {
+            color: #8b5cf6;
+            display: block;
+        }
+
+        .site-subtitle {
+            font-family: 'Arial', sans-serif;
+            font-size: 0.9rem;
+            color: #666666;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        /* Carousel Animation */
+        .carousel-container {
+            background: #f8f8f8;
+            padding: 40px 0;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .carousel-content {
+            text-align: center;
+        }
+
+        .carousel-greeting {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+        }
+
+        .carousel-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 600;
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            position: relative;
         }
 
-        .intro-content h1 {
-            font-size: 4rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: fadeInUp 1s ease-out;
-            position: relative;
+        .carousel-text .text-black {
+            color: #1a1a1a;
+            margin-right: 10px;
         }
 
-        .intro-content h1::after {
-            content: '';
+        .carousel-text .text-purple {
+            color: #8b5cf6;
+        }
+
+        .carousel-phrase {
+            opacity: 0;
             position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #8b5cf6, transparent);
+            animation: fadeInOut 12s infinite;
         }
 
-        .intro-content p {
-            font-size: 1.5rem;
-            color: #a0a0a0;
-            margin-bottom: 2rem;
-            animation: fadeInUp 1s ease-out 0.2s both;
+        .carousel-phrase:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .carousel-phrase:nth-child(2) {
+            animation-delay: 3s;
+        }
+
+        .carousel-phrase:nth-child(3) {
+            animation-delay: 6s;
+        }
+
+        .carousel-phrase:nth-child(4) {
+            animation-delay: 9s;
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0; transform: translateY(10px); }
+            8%, 25% { opacity: 1; transform: translateY(0); }
+            33% { opacity: 0; transform: translateY(-10px); }
+        }
+
+        .divider {
+            width: 200px;
+            height: 3px;
+            background: #8b5cf6;
+            margin: 20px auto;
+        }
+
+        /* Intro Section */
+        .intro-section {
+            padding: 80px 0;
+            background: #ffffff;
+        }
+
+        .intro-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .intro-header h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
         }
 
         .intro-bio {
-            text-align: left;
             max-width: 800px;
-            margin: 0 auto 2rem;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         .intro-bio ul {
@@ -100,123 +182,159 @@
         }
 
         .intro-bio li {
-            color: #a0a0a0;
+            color: #333333;
             font-size: 1.1rem;
-            padding-left: 25px;
+            padding-left: 30px;
             position: relative;
-            margin-bottom: 10px;
-            line-height: 1.6;
+            margin-bottom: 15px;
+            line-height: 1.8;
+            font-family: 'Arial', sans-serif;
         }
 
         .intro-bio li:before {
-            content: "→";
+            content: "■";
             position: absolute;
             left: 0;
             color: #8b5cf6;
+            font-size: 1.2rem;
         }
 
-        .intro-bio .highlight {
-            text-decoration: underline;
-            text-decoration-color: #8b5cf6;
-            text-decoration-thickness: 2px;
-            text-underline-offset: 3px;
+        .highlight {
+            background: linear-gradient(180deg, transparent 60%, #e9d5ff 60%);
+            font-weight: 600;
+            color: #1a1a1a;
         }
 
         .cta-button {
             display: inline-block;
+            margin-top: 30px;
             padding: 15px 40px;
-            background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+            background: #8b5cf6;
             color: white;
             text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            animation: fadeInUp 1s ease-out 0.4s both;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            border: 3px solid #8b5cf6;
+            font-family: 'Arial', sans-serif;
         }
 
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+            background: white;
+            color: #8b5cf6;
         }
 
         /* Projects Section */
         .projects-section {
-            min-height: 100vh;
-            padding: 100px 0;
+            padding: 80px 0;
+            background: #f8f8f8;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
         }
 
         .section-title {
-            font-size: 3rem;
-            text-align: center;
-            margin-bottom: 60px;
-            background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #1a1a1a;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: -1px;
             position: relative;
             display: inline-block;
-            width: 100%;
+        }
+
+        .section-title::before,
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: #8b5cf6;
+            top: 50%;
         }
 
         .section-title::before {
-            content: '//';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-200px);
-            color: rgba(139, 92, 246, 0.3);
-            font-weight: 300;
+            right: calc(100% + 20px);
         }
 
         .section-title::after {
-            content: '//';
-            position: absolute;
-            right: 50%;
-            transform: translateX(200px);
-            color: rgba(139, 92, 246, 0.3);
-            font-weight: 300;
+            left: calc(100% + 20px);
         }
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
+            grid-template-columns: 1fr;
+            gap: 40px;
         }
 
         .project-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            padding: 30px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-            color: inherit;
-            display: block;
+            background: #ffffff;
+            border: 2px solid #e0e0e0;
+            padding: 40px;
+            transition: all 0.3s ease;
             position: relative;
-            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: #8b5cf6;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
         }
 
         .project-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: #8b5cf6;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+            font-weight: 900;
+            font-family: 'Montserrat', sans-serif;
         }
 
-        .project-card p {
-            color: #b0b0b0;
-            margin-bottom: 15px;
+        .overview-section {
+            margin-bottom: 25px;
+        }
+
+        .overview-section h4 {
+            color: #8b5cf6;
+            font-size: 1rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .overview-section p {
+            color: #333333;
             line-height: 1.8;
+            font-family: 'Arial', sans-serif;
         }
 
         .features-list {
-            margin-bottom: 15px;
+            margin-bottom: 25px;
         }
 
         .features-list h4 {
-            color: #a78bfa;
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-            margin-top: 15px;
+            color: #8b5cf6;
+            font-size: 1rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            font-family: 'Arial', sans-serif;
         }
 
         .features-list ul {
@@ -225,202 +343,181 @@
         }
 
         .features-list li {
-            color: #b0b0b0;
-            padding-left: 20px;
+            color: #333333;
+            padding-left: 25px;
             position: relative;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            font-family: 'Arial', sans-serif;
         }
 
         .features-list li:before {
-            content: "→";
+            content: "▸";
             position: absolute;
             left: 0;
             color: #8b5cf6;
-        }
-
-        .overview-section {
-            margin-bottom: 20px;
-        }
-
-        .overview-section h4 {
-            color: #a78bfa;
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-        }
-
-        .overview-section p {
-            color: #b0b0b0;
-            line-height: 1.8;
+            font-weight: bold;
         }
 
         .screenshots-grid {
-            margin-top: 10px;
-        }
-
-        .screenshot-placeholder {
-            width: 100%;
-            height: 250px;
-            background: rgba(139, 92, 246, 0.1);
-            border: 2px dashed rgba(139, 92, 246, 0.3);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #8b5cf6;
-            font-size: 0.9rem;
+            margin-top: 15px;
         }
 
         .screenshot-img {
             width: 100%;
             height: auto;
-            border-radius: 10px;
-            border: 2px solid rgba(139, 92, 246, 0.3);
-            transition: transform 0.3s ease, border-color 0.3s ease;
+            border: 3px solid #e0e0e0;
+            transition: border-color 0.3s ease;
         }
 
         .screenshot-img:hover {
-            transform: scale(1.02);
-            border-color: rgba(139, 92, 246, 0.6);
+            border-color: #8b5cf6;
         }
 
         .project-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
+            margin-top: 25px;
         }
 
         .tag {
-            background: rgba(139, 92, 246, 0.2);
-            color: #c4b5fd;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
+            background: #1a1a1a;
+            color: #ffffff;
+            padding: 8px 18px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Arial', sans-serif;
         }
 
         .project-link {
             display: inline-block;
-            margin-top: 20px;
-            padding: 12px 30px;
-            background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+            margin-top: 25px;
+            padding: 15px 35px;
+            background: #8b5cf6;
             color: white;
             text-decoration: none;
-            border-radius: 25px;
-            font-weight: 600;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            border: 3px solid #8b5cf6;
+            font-family: 'Arial', sans-serif;
         }
 
         .project-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(139, 92, 246, 0.4);
+            background: white;
+            color: #8b5cf6;
         }
 
         /* Contact Section */
         .contact-section {
-            min-height: 60vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            padding: 80px 0;
+            background: #ffffff;
             text-align: center;
-            padding: 100px 0;
         }
 
         .contact-content h2 {
-            font-size: 3rem;
-            margin-bottom: 30px;
-            background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 40px;
+            color: #1a1a1a;
+            font-family: 'Montserrat', sans-serif;
         }
 
         .email-link {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             color: #8b5cf6;
             text-decoration: none;
             display: inline-block;
             padding: 20px 40px;
-            background: rgba(139, 92, 246, 0.1);
-            border-radius: 15px;
-            border: 2px solid rgba(139, 92, 246, 0.3);
+            border: 3px solid #8b5cf6;
             transition: all 0.3s ease;
+            font-weight: 600;
+            font-family: 'Arial', sans-serif;
         }
 
         .email-link:hover {
-            background: rgba(139, 92, 246, 0.2);
-            border-color: #8b5cf6;
-            transform: scale(1.05);
+            background: #8b5cf6;
+            color: white;
         }
 
         .social-links {
-            margin-top: 20px;
+            margin-top: 30px;
             display: flex;
-            gap: 20px;
+            gap: 30px;
             justify-content: center;
             align-items: center;
         }
 
         .social-link {
-            color: #a78bfa;
+            color: #1a1a1a;
             text-decoration: none;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             transition: color 0.3s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Arial', sans-serif;
+            border-bottom: 2px solid transparent;
         }
 
         .social-link:hover {
             color: #8b5cf6;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Smooth Scroll */
-        html {
-            scroll-behavior: smooth;
+            border-bottom: 2px solid #8b5cf6;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .intro-content h1 {
+            .site-title {
+                font-size: 3rem;
+            }
+
+            .intro-header h1 {
                 font-size: 2.5rem;
             }
 
-            .intro-content p {
-                font-size: 1.2rem;
-            }
-
             .section-title {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
 
-            .projects-grid {
-                grid-template-columns: 1fr;
+            .section-title::before,
+            .section-title::after {
+                display: none;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Header Section -->
+    <header class="header-section">
+        <div class="container">
+            <div class="masthead">
+                <div class="site-title">
+                    <span class="first-name">Brent Johann</span>
+                    <span class="last-name">Morales</span>
+                </div>
+                <div class="site-subtitle">Portfolio</div>
+            </div>
+        </div>
+    </header>
+
     <!-- Intro Section -->
     <section class="intro-section">
         <div class="container">
-            <div class="intro-content">
+            <div class="intro-header">
                 <h1>Hello, I'm Brent Johann Morales</h1>
-                <div class="intro-bio">
-                    <ul>
-                        <li><span class="highlight">BS Computer Science</span> undergraduate at the University of the Philippines Diliman</li>
-                        <li>Focused on data-driven problem solving using <span class="highlight">Machine Learning</span> and <span class="highlight">Artificial Intelligence</span></li>
-                        <li>Experienced in managing teams, developing projects, automating data workflows, and optimizing processes to efficiently deliver results</li>
-                    </ul>
-                </div>
-                <a href="#projects" class="cta-button">View My Work</a>
+                <div class="divider"></div>
+            </div>
+            <div class="intro-bio">
+                <ul>
+                    <li><span class="highlight">BS Computer Science</span> undergraduate at the University of the Philippines Diliman</li>
+                    <li>Focused on data-driven problem solving using <span class="highlight">Machine Learning</span> and <span class="highlight">Artificial Intelligence</span></li>
+                    <li>Experienced in managing teams, developing projects, automating data workflows, and optimizing processes to efficiently deliver results</li>
+                </ul>
+                <center><a href="#projects" class="cta-button">View My Work</a></center>
             </div>
         </div>
     </section>
@@ -428,8 +525,65 @@
     <!-- Projects Section -->
     <section class="projects-section" id="projects">
         <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
+            <div class="section-header">
+                <h2 class="section-title">Featured Projects</h2>
+            </div>
             <div class="projects-grid">
+                <div class="project-card">
+                    <h3>DataTalk — AI-Powered CSV Analysis</h3>
+                    
+                    <div class="overview-section">
+                        <h4>Overview</h4>
+                        <p>An interactive web application that enables users to upload CSV files and converse with their data using natural language. The AI assistant can generate visualizations, perform statistical analyses, and provide data-driven insights through an intuitive chat interface.</p>
+                    </div>
+
+                    <div class="overview-section">
+                        <h4>Goal</h4>
+                        <p>To democratize data analysis by allowing anyone to explore and understand their datasets without needing programming knowledge or data science expertise.</p>
+                    </div>
+
+                    <div class="features-list">
+                        <h4>Screenshots</h4>
+                        <div class="screenshots-grid">
+                            <img src="images/DataTalk.jpg" alt="DataTalk CSV Analysis Screenshot" class="screenshot-img">
+                        </div>
+                    </div>
+
+                    <div class="features-list">
+                        <h4>Key Features</h4>
+                        <ul>
+                            <li>Natural language queries for data exploration</li>
+                            <li>Automatic chart generation (histograms, correlation heatmaps, bar charts, boxplots)</li>
+                            <li>Real-time statistical summaries and data profiling</li>
+                            <li>AI-generated insights report with executive summary and recommendations</li>
+                            <li>Code execution sandbox for custom data transformations</li>
+                            <li>Dark-themed, newspaper-inspired UI design</li>
+                        </ul>
+                    </div>
+
+                    <div class="features-list">
+                        <h4>Technical Implementation</h4>
+                        <ul>
+                            <li>Google Gemini 2.0 Flash API for conversational AI</li>
+                            <li>Pandas for data manipulation and analysis</li>
+                            <li>Matplotlib for dynamic visualization generation</li>
+                            <li>Gradio for interactive web interface</li>
+                            <li>REST API integration (no heavy SDK dependencies)</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Google Gemini API</span>
+                        <span class="tag">Gradio</span>
+                        <span class="tag">Pandas</span>
+                        <span class="tag">Matplotlib</span>
+                        <span class="tag">Hugging Face Spaces</span>
+                    </div>
+
+                    <a href="https://huggingface.co/spaces/screamingKatze/DataTalk" target="_blank" rel="noopener noreferrer" class="project-link">Link to Project</a>
+                </div>
+
                 <div class="project-card">
                     <h3>Japanese Object Detection & Translation</h3>
                     
